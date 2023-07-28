@@ -1,5 +1,12 @@
 <?php
+//0. SESSION開始！！
+session_start();
+
 include("kadai_funcs.php");  //funcs.phpを読み込む（関数群）
+
+//ログインチェック
+sschk();
+
 $pdo = db_conn();      //DB接続関数
 
 //２．データ登録SQL作成
