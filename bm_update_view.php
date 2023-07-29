@@ -1,10 +1,12 @@
 <?php
+session_start();
 //１．PHP
 //select.phpの[PHPコードだけ！]をマルっとコピーしてきます。
 //※SQLとデータ取得の箇所を修正します。
 $id = $_GET["id"];
 
 include("kadai_funcs.php");  //funcs.phpを読み込む（関数群）
+sschk();
 $pdo = db_conn();      //DB接続関数
 
 $stmt   = $pdo->prepare("SELECT * FROM gs_bm_table WHERE id = :id"); //SQLをセット

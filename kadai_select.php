@@ -52,6 +52,8 @@ if($status==false) {
     <div class="container-fluid">
       <div class="navbar-header">
       <a class="navbar-brand" href="kadai_index.php">データ登録</a>
+      <a class="navbar-brand" href="kadai_login.php">ログイン</a>
+      <a class="navbar-brand" href="kadai_logout.php">ログアウト</a>
       </div>
     </div>
   </nav>
