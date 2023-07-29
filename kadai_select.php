@@ -14,23 +14,25 @@ $stmt   = $pdo->prepare("SELECT * FROM gs_bm_table"); //SQLをセット
 $status = $stmt->execute(); //SQLを実行→エラーの場合falseを$statusに代入
 
 //３．データ表示
-$view=""; //HTML文字列作り、入れる変数
-if($status==false) {
-  //SQLエラーの場合
-  sql_error($stmt);
-}else{
-  //SQL成功の場合
-  while( $r = $stmt->fetch(PDO::FETCH_ASSOC)){ //データ取得数分繰り返す
-    //以下でリンクの文字列を作成, $r["id"]でidをdetail.phpに渡しています
-    $view .= '<a href="bm_update_view.php?id='.h($r["id"]).'">';
-    $view .= h($r["id"])."|".h($r["title"])."|".h($r["author"])."|".h($r["url"])."|".h($r["coment"]);
-    $view .= '</a>';
-    $view .= '<a href="kadai_delete.php?id='.h($r["id"]).'">';
-    $view .= '[削除]';
-    $view .= '</a>';
-    $view .= '<br>';
-  }
-}
+//if( $_SESSION["kanri_flg"]==='1'){
+ $view=""; //HTML文字列作り、入れる変数
+   if($status==false) {
+     //SQLエラーの場合
+     sql_error($stmt);
+   }else{
+     //SQL成功の場合
+     while( $r = $stmt->fetch(PDO::FETCH_ASSOC)){ //データ取得数分繰り返す
+       //以下でリンクの文字列を作成, $r["id"]でidをdetail.phpに渡しています
+       $view .= '<a href="bm_update_view.php?id='.h($r["id"]).'">';
+       $view .= h($r["id"])."|".h($r["title"])."|".h($r["author"])."|".h($r["url"])."|".h($r["coment"]);
+       $view .= '</a>';
+       $view .= '<a href="kadai_delete.php?id='.h($r["id"]).'">';
+       $view .= '[削除]';
+       $view .= '</a>';
+       $view .= '<br>';
+     }
+   }
+//} 
 ?>
 
 
